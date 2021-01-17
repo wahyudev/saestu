@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jan 06, 2021 at 04:15 AM
--- Server version: 5.7.24
+-- Host: localhost
+-- Generation Time: Jan 17, 2021 at 04:54 AM
+-- Server version: 10.5.5-MariaDB-log
 -- PHP Version: 7.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -19,8 +19,318 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sirado`
+-- Database: `ikusaja`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bidang_kinerja`
+--
+
+CREATE TABLE `bidang_kinerja` (
+  `id_bidang` bigint(20) NOT NULL,
+  `nama_bidang` varchar(255) DEFAULT NULL,
+  `kode_bidang` varchar(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bidang_kinerja`
+--
+
+INSERT INTO `bidang_kinerja` (`id_bidang`, `nama_bidang`, `kode_bidang`) VALUES
+(1, 'Pendidikan', 'A'),
+(2, 'Penelitian', 'B'),
+(3, 'Inovasi', 'C'),
+(4, 'Pengabdian Masyarakat', 'D'),
+(5, 'Sumber Daya Manusia', 'E'),
+(6, 'Sarana dan Prasarana', 'F'),
+(7, 'Keuangan', 'G'),
+(8, 'Tata Kelola', 'H');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `evaluasi_kinerja`
+--
+
+CREATE TABLE `evaluasi_kinerja` (
+  `id_ek` int(11) NOT NULL,
+  `id_ik` bigint(20) DEFAULT NULL,
+  `baseline` varchar(255) DEFAULT NULL,
+  `target` varchar(255) DEFAULT NULL,
+  `realisasi` varchar(255) DEFAULT NULL,
+  `bobot` varchar(255) DEFAULT NULL,
+  `skor` varchar(255) DEFAULT NULL,
+  `nilai_iku` varchar(255) DEFAULT NULL,
+  `tahun` varchar(5) DEFAULT NULL,
+  `id_unit_kerja` int(11) DEFAULT NULL,
+  `id_jabatan` int(11) DEFAULT NULL,
+  `sebagai_sumber_data` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `evaluasi_kinerja`
+--
+
+INSERT INTO `evaluasi_kinerja` (`id_ek`, `id_ik`, `baseline`, `target`, `realisasi`, `bobot`, `skor`, `nilai_iku`, `tahun`, `id_unit_kerja`, `id_jabatan`, `sebagai_sumber_data`) VALUES
+(127, 5, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 50, 1),
+(129, 5, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 2, 208, 1),
+(130, 93, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 2, 208, 1),
+(131, 5, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(132, 93, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(133, 94, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(134, 95, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(135, 96, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(136, 8, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(137, 9, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(138, 48, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(139, 49, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(140, 50, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(141, 51, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(142, 91, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(143, 92, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(144, 47, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(145, 29, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(146, 115, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(147, 30, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(148, 31, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(149, 32, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(150, 46, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(151, 58, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(152, 61, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(153, 97, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(154, 101, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(155, 11, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(156, 20, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(157, 21, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(158, 22, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(159, 23, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(160, 24, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(161, 25, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(162, 26, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(163, 27, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(164, 28, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(165, 33, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(166, 12, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(167, 98, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(168, 99, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(169, 102, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(170, 103, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(171, 104, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(172, 105, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(173, 13, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(174, 14, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(175, 15, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(176, 16, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(177, 17, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(178, 18, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(179, 19, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(180, 40, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(181, 35, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(182, 36, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(183, 37, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(184, 39, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(185, 100, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(186, 112, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(187, 113, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(188, 38, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(189, 41, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(190, 42, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(191, 43, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(192, 45, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(193, 110, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(194, 10, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(195, 109, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(196, 34, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(197, 78, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(198, 86, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(199, 87, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(200, 44, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(201, 60, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(202, 63, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(203, 64, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(204, 65, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(205, 66, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(206, 67, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(207, 68, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(208, 62, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(209, 107, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(210, 108, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(211, 72, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(212, 73, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(213, 74, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(214, 75, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(215, 76, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(216, 77, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(217, 111, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(218, 116, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(219, 117, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(220, 69, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(221, 88, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(222, 89, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(223, 118, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(224, 90, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(225, 70, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(226, 79, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(227, 80, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(228, 81, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(229, 82, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(230, 83, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(231, 84, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(232, 85, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(233, 52, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(234, 53, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(235, 54, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(236, 57, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(237, 59, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(238, 71, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(239, 55, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(240, 56, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(241, 106, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(242, 114, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(243, 119, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(244, 120, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(245, 121, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 37, 1),
+(246, 5, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 47, 1),
+(247, 93, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 47, 1),
+(248, 94, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 47, 1),
+(249, 9, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 1, 50, 1),
+(250, 94, NULL, NULL, NULL, NULL, NULL, NULL, '2021', 2, 208, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `indikator_kinerja`
+--
+
+CREATE TABLE `indikator_kinerja` (
+  `id_ik` bigint(20) NOT NULL,
+  `kode_iku` varchar(5) NOT NULL,
+  `nama_ik` varchar(255) DEFAULT NULL,
+  `id_ss` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `indikator_kinerja`
+--
+
+INSERT INTO `indikator_kinerja` (`id_ik`, `kode_iku`, `nama_ik`, `id_ss`) VALUES
+(5, 'A1.1', 'Jumlah Peminat', 5),
+(8, 'A1.2', 'Jumlah Mahasiswa baru yang diterima', 5),
+(9, 'A1.3', 'Jumlah Daya Tampung', 5),
+(10, 'C3.1', 'Jumlah penelitian/riset mahasiswa yang bekerja sama dengan lembaga pemerintah dan DUDI', 15),
+(11, 'A4.1', 'Rata-rata lama studi D3', 8),
+(12, 'A4.2', 'Rata-rata lama studi D4', 8),
+(13, 'A4.3', 'Rata-rata lama studi S1', 8),
+(14, 'A4.4', 'Rata-rata Lama Studi S2', 8),
+(15, 'A4.5', 'Rata-rata Lama Studi S3', 8),
+(16, 'A4.6', 'Rata-rata Lama Studi Profesi', 8),
+(17, 'A4.7', 'Rata- rata indeks prestasi kumulatif D3', 8),
+(18, 'A4.8', 'Rata- rata indeks prestasi kumulatif D4', 8),
+(19, 'A4.9', 'Rata- rata indeks prestasi kumulatif S1', 8),
+(20, 'A4.10', 'Rata- rata indeks prestasi kumulatif Profesi', 8),
+(21, 'A4.11', 'Rata- rata indeks prestasi kumulatif S2', 8),
+(22, 'A4.12', 'Rata- rata indeks prestasi kumulatif S3', 8),
+(23, 'A4.13', 'Rata-rata lama penyelesaiannya Tugas Akhir S1', 8),
+(24, 'A4.14', 'Rata-rata lama penyelesaiannya Tugas Akhir S2', 8),
+(25, 'A4.15', 'Rata-rata lama penyelesaiannya Tugas Akhir S3', 8),
+(26, 'A4.16', 'Persentase lulusan dengan IPK 3.25 dan tepat waktu Program Sarjana', 8),
+(27, 'A4.17', 'Persentase lulusan dengan IPK 3.25 dan tepat waktu Program Magister', 8),
+(28, 'A4.18', 'Persentase lulusan dengan IPK 3.25 dan tepat waktu Program Doktor', 8),
+(29, 'A3.1', 'Persentase lulusan dengan skor TOEFL (PBT) minimal 450 untuk Program Sarjana', 7),
+(30, 'A3.2', 'Persentase lulusan dengan skor TOEFL (PBT) minimal 450 untuk Program Magister', 7),
+(31, 'A3.3', 'Persentase lulusan dengan skor TOEFL (PBT) minimal 450 untuk Program Doktor', 8),
+(32, 'A3.4', 'Persentase mahasiswa menghabiskan paling sedikit 20 SKS di Luar Kampus PT Sendiri', 7),
+(33, 'A4.19', 'Persentase tersedianya database akademik yang terintegrasi', 8),
+(34, 'E1.1', 'Persentase dosen berkegiatan Tridharma  di kampus lain (dalam dan luar negeri QS100 by subject)', 19),
+(35, 'B2.1', 'Jumlah publikasi pada jurnal terakreditasi nasional', 10),
+(36, 'B2.2', 'Jumlah jurnal terakreditasi nasional yang dimiliki', 10),
+(37, 'B2.3', 'Jumlah jurnal terindeks Scopus/WoS', 10),
+(38, 'C2.1', 'Jumlah Hak Kekayaan Intelektual (HKI) (Paten, Hak Cipta) per dosen', 14),
+(39, 'B2.4', 'Jumlah Sitasi Per dosen', 10),
+(40, 'B1.1', 'Jumlah riset/penelitian yang dilaksanakan', 11),
+(41, 'C2.2', 'Jumlah produk inovasi', 14),
+(42, 'C2.3', 'Jumlah keluaran penelitian  yang berhasil mendapat rekognisi internasional atau diterapkan oleh masyarakat per jumlah dosen', 14),
+(43, 'C2.4', 'Jumlah pengabdian kepada masyarakat yang berhasil mendapat rekognisi internasional atau diterapkan oleh masyarakat', 14),
+(44, 'E1.2', 'Persentase dosen yang mengikuti forum ilmiah tingkat internasional', 19),
+(45, 'C2.5', 'Jumlah prototipe industri', 14),
+(46, 'A3.5', 'Persentase mata kuliah S1 dan D4/D3 yang menggunakan metode pembelajaran pemecahan kasus (case method) atau pembelajaran kelompok berbasis projek (team based project) sebagai bobot evaluasi', 7),
+(47, 'A2.1', 'Persentase program studi S1 dan D4/D3 yang memiliki akreditasi atau sertifikat internasional yang diakui pemerintah.', 6),
+(48, 'A1.4', 'Persentase program studi terakreditasi A', 5),
+(49, 'A1.5', 'Jumlah program studi terakreditasi A', 5),
+(50, 'A1.6', 'Persentase program studi terakreditasi B', 5),
+(51, 'A1.7', 'Jumlah program studi terakreditasi B', 5),
+(52, 'H1.1', 'Jumlah jurnal nasional terakreditasi yang dilanggan', 25),
+(53, 'H1.2', 'Jumlah jurnal internasional terakreditasi yang dilanggan', 25),
+(54, 'H1.3', 'Jumlah koleksi buku di perpustakaan', 25),
+(55, 'H2.1', 'Jumlah koleksi e-book di perpustakaan', 26),
+(56, 'H2.2', 'Ketersediaan e-library', 26),
+(57, 'H1.4', 'Jumlah usulan kebijakan yang diterbitkan mengenai sistem pendidikan dan pengajaran', 25),
+(58, 'A3.6', 'Jumlah Mata kuliah dengan pembelajaran daring/blended learning', 7),
+(59, 'H1.5', 'Kelengkapan laporan PDDIKTI', 25),
+(60, 'E1.3', 'Rasio jumlah dosen terhadap jumlah mahasiswa', 19),
+(61, 'A3.7', 'Jumlah program studi yang menerapkan kurikulum Merdeka Belajar Kampus Merdeka', 7),
+(62, 'E2.1', 'Indeks Kepuasan Layanan Masyarakat', 20),
+(63, 'E1.4', 'Persentase dosen tetap yang berkualifikasi S3', 19),
+(64, 'E1.5', 'Jumlah dosen tetap yang berkualifikasi S3', 19),
+(65, 'E1.6', 'Persentase dosen tetap yang memiliki sertifikat kompetensi', 19),
+(66, 'E1.7', 'Persentase dosen yang bersertifikasi pendidik', 19),
+(67, 'E1.8', 'Persentase dosen dalam jabatan lektor kepala dan guru besar', 19),
+(68, 'E1.9', 'Persentase jumlah dosen PNS bergelar Doktor dibandingkan dengan total jumlah dosen', 19),
+(69, 'G2.1', 'Persentase kepatuhan terhadap penyampaian laporan kegiatan dan pelaksanaan anggaran', 24),
+(70, 'G2.2', 'Persentase ketercapaian volume output dalam RKAKL', 24),
+(71, 'H1.6', 'Jumlah POS (Prosedur Operasional Standar) yang dihasilkan', 25),
+(72, 'F2.1', 'Jumlah ruang kuliah yang dalam kondisi baik (memenuhi standar)', 22),
+(73, 'F2.2', 'Jumlah laboratorium dengan sarana prasarana memenuhi standar', 22),
+(74, 'F2.3', 'Rasio luas ruang kerja dosen', 22),
+(75, 'F2.4', 'Rasio luas ruang baca dengan jumlah pemustaka', 22),
+(76, 'F2.5', 'Jumlah sarana dan prasarana untuk civitas akademika berkebutuhan khusus yang memenuhi standar (difabel, laktasi, penitipan anak)', 22),
+(77, 'F2.6', 'Rasio luas ruang ibadah dengan civitas akademika', 22),
+(78, 'E1.10', 'Jumlah tenaga kependidikan yang tersertifikasi (laboran, pustakawan, dan arsiparis)', 19),
+(79, 'G2.3', 'Persentase capaian kinerja anggaran dalam aplikasi yang tersedia', 23),
+(80, 'G2.4', 'Persentase penurunan nominal temuan audit BPK', 24),
+(81, 'G2.5', 'Persentase peningkatan target PNBP', 24),
+(82, 'G2.6', 'Persentase tersedianya pedoman penatalaksanaan dan pelaporan keuangan, akuntansi, dan aset yang terintegrasi', 24),
+(83, 'G2.7', 'Persentase tersedianya pedoman perencanaan dan penganggaran yang terintegrasi', 24),
+(84, 'G2.8', 'Persentase tersedianya pedoman penatalaksanaan dan manajemen aset yang terintegrasi', 24),
+(85, 'G2.9', 'Persentase penyelesaian modernisasi pengelolaan keuangan BLU', 24),
+(86, 'E1.11', 'Jumlah tenaga kependidikan penerima beasiswa S2', 19),
+(87, 'E1.12', 'Persentase jumlah tenaga kependidikan PNS yang mengikuti diklat pengembangan', 19),
+(88, 'G2.10', 'Jumlah nominal realisasi PNBP BLU', 24),
+(89, 'G2.11', 'Persentase PNBP BLU yang digunakan untuk Belanja Operasional', 24),
+(90, 'G2.12', 'Persentase kepatuhan terhadap penyampaian laporan kegiatan dan pelaksanaan anggaran', 24),
+(91, 'A1.8', 'Jumlah mahasiswa 3T', 5),
+(92, 'A1.9', 'Jumlah mahasiswa asing', 5),
+(93, 'A1.10', 'Jumlah mahasiswa penerima bidik misi', 5),
+(94, 'A1.11', 'Jumlah mahasiswa peserta KIP', 5),
+(95, 'A1.12', 'Jumlah mahasiswa penerima beasiswa prestasi dan akademik', 5),
+(96, 'A1.13', 'Jumlah mahasiswa penerima beasiswa tahfidz Qur\'an', 5),
+(97, 'A3.8', 'Jumlah program kepada masyarakat yang dilakukan mahasiswa (PHP2D, desa wisata dan yang terkait, PPM yang dilakukan dosen melibatkan mahasiswa)', 7),
+(98, 'A4.20', 'Persentase tingkat penurunan jumlah kasus pelanggaran kode etik mahasiswa', 8),
+(99, 'A4.21', 'Persentase mahasiswa peraih prestasi paling rendah tingkat nasional', 8),
+(100, 'C1.1', 'Jumlah mahasiswa yang berwirausaha', 13),
+(101, 'A3.9', 'Jumlah stadium generale', 7),
+(102, 'A4.22', 'Persentase lulusan mendapatkan pekerjaan kurang dari 6 bulan', 8),
+(103, 'A4.23', 'Persentase lulusan melanjutkan studi', 8),
+(104, 'A4.24', 'Persentase lulusan yang menjadi wiraswasta', 8),
+(105, 'A4.25', 'Jumlah usulan kebijakan yang diterbitkan mengenai kemahasiswaan dan alumni', 8),
+(106, 'H2.3', 'Persentase tersedianya database kemahasiswaan dan alumni yang terintegrasi', 26),
+(107, 'E2.2', 'Indeks Kepuasan Pemberi Kerja', 19),
+(108, 'E2.3', 'Persentase dosen sebagai pembina kompetisi mahasiswa yang berprestasi minimal tingkat nasional', 20),
+(109, 'C3.1', 'Jumlah mahasiswa yang mengikuti pemagangan ke DUDI', 15),
+(110, 'C2.6', 'Persentase dosen tetap yang berasal praktisi professional atau DUDI', 14),
+(111, 'G1.1', 'Jumlah kemitraan dalam pendanaan PT dalam pemerintah dan industri (DUDI) yang relevan dengan masing-masing program studi', 23),
+(112, 'C1.2', 'Jumlah MoU dengan lembaga internasional', 15),
+(113, 'C1.3', 'Jumlah usulan kebijakan yang diterbitkan mengenai kerjasama dan kelembagaan', 15),
+(114, 'H2.4', 'Persentase tersedianya database kerjasama yang terintegrasi dengan pihak eksternal', 26),
+(115, 'A3.10', 'Persentase program studi S1 dan D4/D3 yang melaksanakan kerjasama dengan mitra', 7),
+(116, 'G1.2', 'Ketersediaan rencana pengembangan/Renstra/RKT', 23),
+(117, 'G1.3', 'Jumlah kemitraan dalam pendanaan Perguruan Tinggi dalam pemerintah dan industri', 23),
+(118, 'G2.12', 'Persentase tersedianya pedoman perencanaan dan penganggaran yang terintegrasi', 24),
+(119, 'H2.5', 'Manajemen dashboard terpadu', 26),
+(120, 'H2.6', 'Proses bisnis bidang akademik berbasis IT', 26),
+(121, 'H2.7', 'Proses bisnis bidang pendukung akademik berbasis IT', 26);
 
 -- --------------------------------------------------------
 
@@ -31,7 +341,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `jobs` (
   `id` int(11) NOT NULL,
   `queue` varchar(254) DEFAULT NULL,
-  `payload` text,
+  `payload` text DEFAULT NULL,
   `attempts` int(11) DEFAULT NULL,
   `reserved_at` int(11) DEFAULT NULL,
   `available_at` int(11) DEFAULT NULL,
@@ -57,8 +367,8 @@ CREATE TABLE `log_aktivitas` (
   `id_pelaku` varchar(45) DEFAULT NULL,
   `nama_pelaku` varchar(100) DEFAULT NULL,
   `ip` varchar(100) DEFAULT NULL,
-  `user_agent` text,
-  `aktifitas` text,
+  `user_agent` text DEFAULT NULL,
+  `aktifitas` text DEFAULT NULL,
   `tanggal` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -96,7 +406,37 @@ INSERT INTO `menus` (`id_menu`, `nama_menu`, `url`, `icon`, `id_html`, `parent_i
 (49, 'Setting Tampilan Home', 'admin/setting-konten-statis', NULL, NULL, '46', 223, 'admin'),
 (61, 'Log Aktivitas', 'admin/log-aktivitas', 'fa fa-history', NULL, '1', 18, 'admin'),
 (66, 'File Manager', 'admin/file-manager', NULL, NULL, '46', NULL, 'admin'),
-(79, 'Manajemen Kegiatan', 'admin/manajemen-kegiatan', NULL, NULL, '78', NULL, 'admin');
+(79, 'Manajemen Kegiatan', 'admin/manajemen-kegiatan', NULL, NULL, '78', NULL, 'admin'),
+(80, 'Bidang Kerja', 'admin/bidang', 'fa fa-suitcase', NULL, '7', 12, 'admin'),
+(81, 'Sasaran Strategis', 'admin/sasaran-strategis', 'fa fa-line-chart', NULL, '7', 13, 'admin'),
+(82, 'Indikator Kinerja', 'admin/indikator-kinerja', 'fa fa-bar-chart', NULL, '7', 14, 'admin'),
+(83, 'Evaluasi Kinerja', 'admin/evaluasi-kinerja', 'fa fa-book', NULL, '7', 15, 'admin'),
+(84, 'Setup Jabatan IKU', 'admin/setup-jabatan-indikator-kinerja', NULL, NULL, '2', NULL, 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `parent_evaluasi_kinerja`
+--
+
+CREATE TABLE `parent_evaluasi_kinerja` (
+  `id_parent_evaluasi_kinerja` int(11) NOT NULL,
+  `id_ek` int(11) DEFAULT NULL,
+  `id_parent_ek` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `parent_evaluasi_kinerja`
+--
+
+INSERT INTO `parent_evaluasi_kinerja` (`id_parent_evaluasi_kinerja`, `id_ek`, `id_parent_ek`) VALUES
+(36, 246, 131),
+(37, 247, 132),
+(38, 248, 133),
+(39, 249, 137),
+(40, 127, 131),
+(41, 129, 246),
+(42, 129, 127);
 
 -- --------------------------------------------------------
 
@@ -157,9 +497,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id_role`, `nama_role`, `keterangan_role`) VALUES
-(1, 'Developer', 'dev'),
-(9, 'Validator', NULL),
-(10, 'Operator', NULL),
+(1, 'Developer', 'Mengelola Seluruh Sistem'),
+(9, 'Pejabat', 'Pejabat'),
+(10, 'Operator', 'Melakukan Proses Pengiputan'),
 (11, 'Monitor Sirado', 'Memonitor aplikasi sirado');
 
 -- --------------------------------------------------------
@@ -184,22 +524,19 @@ INSERT INTO `roles_has_menus` (`role_id`, `menu_id`) VALUES
 (1, 4),
 (1, 5),
 (1, 7),
-(9, 7),
-(10, 7),
-(11, 7),
 (1, 8),
-(9, 8),
-(10, 8),
-(11, 8),
-(1, 25),
-(1, 47),
-(1, 49),
 (1, 61),
-(1, 66),
-(10, 66),
-(1, 79),
-(9, 79),
-(10, 79),
+(1, 80),
+(1, 81),
+(1, 82),
+(1, 83),
+(1, 84),
+(9, 7),
+(9, 8),
+(10, 7),
+(10, 8),
+(11, 7),
+(11, 8),
 (11, 79);
 
 -- --------------------------------------------------------
@@ -223,38 +560,54 @@ INSERT INTO `roles_has_permissions` (`role_id`, `permission_id`) VALUES
 (1, 3),
 (1, 4),
 (1, 6),
-(9, 6),
-(10, 6),
-(11, 6),
 (1, 7),
 (1, 8),
 (1, 9),
 (1, 10),
-(1, 52),
-(1, 53),
-(1, 54),
-(1, 55),
-(1, 74),
-(10, 74),
-(1, 75),
-(10, 75),
-(1, 76),
-(10, 76),
-(1, 77),
-(10, 77),
-(1, 86),
-(10, 86),
-(1, 87),
-(10, 87),
-(1, 88),
-(9, 88),
-(10, 88),
-(11, 88),
-(1, 89),
-(10, 89),
-(1, 90),
-(9, 90),
-(1, 95);
+(1, 95),
+(9, 6),
+(10, 6),
+(11, 6),
+(11, 88);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sasaran_strategis`
+--
+
+CREATE TABLE `sasaran_strategis` (
+  `id_ss` bigint(20) NOT NULL,
+  `kode_ss` varchar(3) DEFAULT NULL,
+  `nama_ss` varchar(255) DEFAULT NULL,
+  `id_bidang` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sasaran_strategis`
+--
+
+INSERT INTO `sasaran_strategis` (`id_ss`, `kode_ss`, `nama_ss`, `id_bidang`) VALUES
+(5, 'A1', 'Meningkatnya Akses Pendidikan Tinggi di Universitas Jambi', 1),
+(6, 'A2', 'Berkembangnya Program Pendidikan Tinggi Unggulan', 1),
+(7, 'A3', 'Berkembangnya Program Pendidikan Tinggi yang Inovatif', 1),
+(8, 'A4', 'Meningkatnya Kualitas Pendidikan Tinggi', 1),
+(10, 'B2', 'Menguatnya Entitas Penelitian', 2),
+(11, 'B1', 'Menguatnya Kepakaran Peneliti Lintas Disiplin', 2),
+(13, 'C1', 'Berkembangnya Jiwa Entrepreneurship', 3),
+(14, 'C2', 'Meningkatnya Jumlah Produk Inovasi dan Hak atas Kekayaan Intelektual', 3),
+(15, 'C3', 'Berkembangnya Ekosistem Inovasi', 3),
+(16, 'D3', 'Meningkatnya Kegiatan Pengabdian kepada Masyarakat', 4),
+(17, 'D2', 'Berdayanya Masyarakat yang Berkearifan Lokal', 4),
+(18, 'D1', 'Meningkatnya Jumlah Mitra Strategis untuk Penyelesaian Masalah Bangsa', 4),
+(19, 'E1', 'Meningkatnya Kompetensi dan Kecukupan Dosen dan Tenaga Kependidikan', 5),
+(20, 'E2', 'Menguatnya Budaya UNJA-SMART', 5),
+(21, 'F1', 'Meningkatnya Jumlah dan Kualitas Peralatan Pembelajaran dan Penelitian', 6),
+(22, 'F2', 'Meningkatnya Kapasitas Operasi, Pemeliharaan dan Keberlanjutan Infrastruktur untuk keberlangsungan Pembelajaran, Penelitian, Inovasi dan PkM', 6),
+(23, 'G1', 'Berkembangnya Kemitraan untuk Penyelenggaraan Akademik', 7),
+(24, 'G2', 'Meningkatnya Kualitas Sistem Pengelolaan Keuangan', 7),
+(25, 'H1', 'Menguatnya Sistem Tata Kelola (Management Transformation)', 8),
+(26, 'H2', 'Berkembangnya Sistem Informasi Terpadu (Technology for Digital Transformation)', 8);
 
 -- --------------------------------------------------------
 
@@ -272,11 +625,11 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `status_akun` enum('aktif','tidak_aktif') DEFAULT 'tidak_aktif',
   `jenis_akun` enum('admin','nonadmin') DEFAULT 'nonadmin',
-  `ganti_password` int(1) NOT NULL DEFAULT '1' COMMENT '1 = harus ganti, 0 = tidak perlu ganti',
+  `ganti_password` int(1) NOT NULL DEFAULT 1 COMMENT '1 = harus ganti, 0 = tidak perlu ganti',
   `email` varchar(100) DEFAULT NULL,
   `level_akun` varchar(20) NOT NULL DEFAULT '0' COMMENT '0, univ, 1 fakultas, 2 jurusan/bagian, 3 prodi',
   `password_teks` varchar(255) DEFAULT NULL,
-  `admin_beasiswa` int(11) NOT NULL DEFAULT '0'
+  `admin_beasiswa` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -509,7 +862,7 @@ INSERT INTO `users` (`id_user`, `username`, `nip`, `password`, `remember_token`,
 (5674, '20192002', '20192002', NULL, 'PKkavkJMBB8EQ28NzbqcKVsFux4hjPTfk4678gdbhOp2Ttmcxd0NjL8CBFQp', '2020-11-27 06:44:51', '2020-11-27 06:44:51', 'aktif', 'admin', 0, NULL, '1', NULL, 0),
 (5679, '20192007', '20192007', NULL, NULL, '2020-11-27 07:28:42', '2020-11-27 07:28:42', 'aktif', 'admin', 0, NULL, '0', NULL, 0),
 (5680, '20191008', '20191008', NULL, NULL, '2020-11-27 07:27:45', '2020-11-27 07:27:45', 'aktif', 'admin', 0, NULL, '0', NULL, 0),
-(5683, '20191011', '20191011', '$2y$10$25zy9jkO4JSF.G9OSdvGueOOWQROrE2h9NBEfxZ1Ksp1Mr9V9w2La', 'pW0GSzUZBuD9sc5xf0qkXCRBgurkWCwEazeqV2RI0fqOWSGSMNhXWqvsb0tD', '2019-11-15 02:34:00', '2020-11-24 14:29:09', 'aktif', 'admin', 1, NULL, '0', NULL, 0),
+(5683, '20191011', '20191011', '$2y$10$25zy9jkO4JSF.G9OSdvGueOOWQROrE2h9NBEfxZ1Ksp1Mr9V9w2La', '7moUpsWAcVtVXum6QjqI1tX1UsQGRVuB71gWe30S2m5VRNjRFxtshb27YNv8', '2019-11-15 02:34:00', '2021-01-14 06:18:59', 'aktif', 'admin', 1, NULL, '1', NULL, 0),
 (5696, '0025065905', '195906251986012001', NULL, NULL, '2020-12-17 05:42:32', '2020-12-17 05:42:32', 'aktif', 'admin', 0, NULL, '0', NULL, 0),
 (5720, '20192030', '20192030', NULL, NULL, '2020-12-01 03:44:09', '2020-12-01 03:44:09', 'aktif', 'admin', 0, NULL, '0', NULL, 0),
 (5750, '2002029202', '199202022019032020', NULL, NULL, '2020-12-01 03:59:21', '2020-12-01 03:59:21', 'aktif', 'admin', 0, NULL, '0', NULL, 0),
@@ -543,17 +896,10 @@ CREATE TABLE `users_has_roles` (
 INSERT INTO `users_has_roles` (`user_id`, `role_id`) VALUES
 (1, 1),
 (19, 1),
-(227, 1),
-(236, 1),
-(1257, 1),
-(5683, 1),
-(24354, 1),
-(24355, 1),
-(26104, 1),
-(26108, 1),
-(24470, 2),
-(26107, 2),
-(26089, 3),
+(50, 10),
+(61, 9),
+(106, 9),
+(124, 11),
 (127, 4),
 (128, 4),
 (129, 4),
@@ -597,6 +943,7 @@ INSERT INTO `users_has_roles` (`user_id`, `role_id`) VALUES
 (167, 4),
 (168, 4),
 (169, 4),
+(170, 9),
 (171, 4),
 (172, 4),
 (173, 4),
@@ -653,6 +1000,7 @@ INSERT INTO `users_has_roles` (`user_id`, `role_id`) VALUES
 (224, 4),
 (225, 4),
 (226, 4),
+(227, 1),
 (228, 4),
 (229, 4),
 (230, 4),
@@ -661,82 +1009,20 @@ INSERT INTO `users_has_roles` (`user_id`, `role_id`) VALUES
 (233, 4),
 (234, 4),
 (235, 4),
+(236, 1),
 (237, 4),
 (238, 4),
 (240, 4),
 (241, 4),
 (242, 4),
 (294, 5),
-(358, 6),
-(359, 6),
-(26109, 6),
-(26110, 6),
-(24359, 7),
-(61, 9),
-(106, 9),
-(170, 9),
 (304, 9),
-(394, 9),
-(1068, 9),
-(1074, 9),
-(1128, 9),
-(1239, 9),
-(1369, 9),
-(1396, 9),
-(1398, 9),
-(1440, 9),
-(1464, 9),
-(1465, 9),
-(1472, 9),
-(1494, 9),
-(1498, 9),
-(1508, 9),
-(1549, 9),
-(1588, 9),
-(1592, 9),
-(1671, 9),
-(1672, 9),
-(1696, 9),
-(1704, 9),
-(1720, 9),
-(1730, 9),
-(1739, 9),
-(1758, 9),
-(1760, 9),
-(1766, 9),
-(1770, 9),
-(1771, 9),
-(1803, 9),
-(1829, 9),
-(1831, 9),
-(1853, 9),
-(1856, 9),
-(1857, 9),
-(1879, 9),
-(1895, 9),
-(1911, 9),
-(1946, 9),
-(1955, 9),
-(1969, 9),
-(1984, 9),
-(1988, 9),
-(1992, 9),
-(1994, 9),
-(1998, 9),
-(2014, 9),
-(2044, 9),
-(2049, 9),
-(2050, 9),
-(2067, 9),
-(2072, 9),
-(5619, 9),
-(5788, 9),
-(5792, 9),
-(5986, 9),
-(50, 10),
 (312, 10),
 (323, 10),
+(358, 6),
+(359, 6),
 (386, 10),
+(394, 9),
 (403, 10),
 (423, 10),
 (435, 10),
@@ -768,24 +1054,91 @@ INSERT INTO `users_has_roles` (`user_id`, `role_id`) VALUES
 (879, 10),
 (885, 10),
 (1040, 10),
+(1068, 9),
+(1074, 9),
+(1128, 9),
 (1230, 10),
+(1239, 9),
+(1257, 1),
 (1268, 10),
+(1369, 9),
+(1396, 9),
+(1398, 9),
+(1440, 9),
+(1464, 9),
+(1465, 9),
+(1472, 9),
+(1475, 11),
+(1494, 9),
+(1498, 9),
+(1508, 9),
+(1549, 9),
+(1588, 9),
+(1592, 9),
+(1671, 9),
+(1672, 9),
+(1696, 9),
+(1704, 9),
+(1720, 9),
+(1730, 9),
+(1739, 9),
+(1758, 9),
+(1760, 9),
+(1766, 9),
+(1770, 9),
+(1771, 9),
+(1803, 9),
+(1822, 11),
+(1829, 9),
+(1831, 9),
 (1831, 10),
+(1853, 9),
 (1853, 10),
+(1856, 9),
+(1857, 9),
+(1879, 9),
+(1895, 9),
 (1905, 10),
+(1911, 9),
 (1937, 10),
+(1946, 9),
+(1955, 9),
+(1969, 9),
 (1971, 10),
+(1984, 9),
+(1988, 9),
+(1992, 9),
+(1994, 9),
+(1998, 9),
 (2001, 10),
 (2006, 10),
+(2014, 9),
+(2044, 9),
 (2046, 10),
+(2049, 9),
+(2050, 9),
+(2067, 9),
+(2072, 9),
 (2072, 10),
+(5619, 9),
 (5674, 10),
+(5683, 1),
 (5783, 10),
 (5784, 10),
 (5785, 10),
-(124, 11),
-(1475, 11),
-(1822, 11);
+(5788, 9),
+(5792, 9),
+(5986, 9),
+(24354, 1),
+(24355, 1),
+(24359, 7),
+(24470, 2),
+(26089, 3),
+(26104, 1),
+(26107, 2),
+(26108, 1),
+(26109, 6),
+(26110, 6);
 
 -- --------------------------------------------------------
 
@@ -1683,11 +2036,31 @@ INSERT INTO `user_instansi` (`id_user_intsansi`, `id_user`, `id_unit_kerja`) VAL
 (948, 1396, 172),
 (949, 1396, 172),
 (950, 2044, 169),
-(951, 1984, 181);
+(951, 1984, 181),
+(952, 5683, 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bidang_kinerja`
+--
+ALTER TABLE `bidang_kinerja`
+  ADD PRIMARY KEY (`id_bidang`);
+
+--
+-- Indexes for table `evaluasi_kinerja`
+--
+ALTER TABLE `evaluasi_kinerja`
+  ADD PRIMARY KEY (`id_ek`);
+
+--
+-- Indexes for table `indikator_kinerja`
+--
+ALTER TABLE `indikator_kinerja`
+  ADD PRIMARY KEY (`id_ik`),
+  ADD KEY `id_ss` (`id_ss`);
 
 --
 -- Indexes for table `jobs`
@@ -1706,6 +2079,14 @@ ALTER TABLE `log_aktivitas`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id_menu`);
+
+--
+-- Indexes for table `parent_evaluasi_kinerja`
+--
+ALTER TABLE `parent_evaluasi_kinerja`
+  ADD PRIMARY KEY (`id_parent_evaluasi_kinerja`),
+  ADD KEY `fk_id_ek_idx` (`id_ek`),
+  ADD KEY `fk_id_parent_ek_idx` (`id_parent_ek`);
 
 --
 -- Indexes for table `permissions`
@@ -1737,6 +2118,13 @@ ALTER TABLE `roles_has_permissions`
   ADD KEY `fk_roles_has_permissions_roles1_idx` (`role_id`);
 
 --
+-- Indexes for table `sasaran_strategis`
+--
+ALTER TABLE `sasaran_strategis`
+  ADD PRIMARY KEY (`id_ss`),
+  ADD KEY `id_bidang` (`id_bidang`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -1762,6 +2150,24 @@ ALTER TABLE `user_instansi`
 --
 
 --
+-- AUTO_INCREMENT for table `bidang_kinerja`
+--
+ALTER TABLE `bidang_kinerja`
+  MODIFY `id_bidang` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `evaluasi_kinerja`
+--
+ALTER TABLE `evaluasi_kinerja`
+  MODIFY `id_ek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=251;
+
+--
+-- AUTO_INCREMENT for table `indikator_kinerja`
+--
+ALTER TABLE `indikator_kinerja`
+  MODIFY `id_ik` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+
+--
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
@@ -1777,7 +2183,13 @@ ALTER TABLE `log_aktivitas`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+
+--
+-- AUTO_INCREMENT for table `parent_evaluasi_kinerja`
+--
+ALTER TABLE `parent_evaluasi_kinerja`
+  MODIFY `id_parent_evaluasi_kinerja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -1792,34 +2204,27 @@ ALTER TABLE `roles`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `sasaran_strategis`
+--
+ALTER TABLE `sasaran_strategis`
+  MODIFY `id_ss` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
 -- AUTO_INCREMENT for table `user_instansi`
 --
 ALTER TABLE `user_instansi`
-  MODIFY `id_user_intsansi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=952;
+  MODIFY `id_user_intsansi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=953;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `permissions`
+-- Constraints for table `parent_evaluasi_kinerja`
 --
-ALTER TABLE `permissions`
-  ADD CONSTRAINT `fk_permissions_menus1` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `roles_has_menus`
---
-ALTER TABLE `roles_has_menus`
-  ADD CONSTRAINT `fk_roles_has_menus_menus1` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_roles_has_menus_roles1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `roles_has_permissions`
---
-ALTER TABLE `roles_has_permissions`
-  ADD CONSTRAINT `fk_roles_has_permissions_permissions1` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id_permission`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_roles_has_permissions_roles1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id_role`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `parent_evaluasi_kinerja`
+  ADD CONSTRAINT `fk_id_ek` FOREIGN KEY (`id_ek`) REFERENCES `evaluasi_kinerja` (`id_ek`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_id_parent_ek` FOREIGN KEY (`id_parent_ek`) REFERENCES `evaluasi_kinerja` (`id_ek`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
