@@ -4,6 +4,13 @@ Route::get('load-dosen-pegawai','LoadDataController@loadDosenPegawai');
 
 Route::get('dashboard','DashboardController@index');
 Route::resource('bidang','BidangController');
+
+Route::resource('setup-jabatan-indikator-kinerja','SetupJabatanIndikatorKinerjaController');
+Route::get('load-jabatan-indikator-kinerja','SetupJabatanIndikatorKinerjaController@loadData');
+Route::post('store-setup-jabatan-indikator','SetupJabatanIndikatorKinerjaController@postSetupJabatan');
+Route::post('store-setup-jabatan-indikator-simpan-parent','SetupJabatanIndikatorKinerjaController@postSetupJabatanSimpanParent');
+
+
 Route::resource('indikator-kinerja','IndikatorKinerjaController');
 Route::resource('sasaran-strategis','SasaranStrategisController');
 Route::resource('evaluasi-kinerja','EvaluasiKinerjaController');

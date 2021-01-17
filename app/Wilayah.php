@@ -9,7 +9,7 @@ class Wilayah extends Model
     protected $primaryKey='id_wilayah';
     protected $guarded=[];
     public $timestamps=false;
-    protected $table='wilayah';
+    protected $table='kepeg.wilayah';
     public $incrementing = false;
 
     public function kabupaten_kota()

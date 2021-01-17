@@ -9,7 +9,7 @@ class Jabatan extends Model
     protected $primaryKey='id_jabatan';
     protected $guarded=[];
     public $timestamps=false;
-    protected $table='jabatan';
+    protected $table='kepeg.jabatan';
 
     
 

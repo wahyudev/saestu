@@ -1,10 +1,28 @@
 <?php
 
 use App\LogAktivitas;
+use App\JabatanIndikatorKinerja;
 class Helpers
 {
 
-  
+
+public static function pejabat($data)
+{
+  return $data->jabatan->nama_jabatan.' '.$data->unit_kerja->ref_unit->nama_di_plo;
+}  
+public static function cek_atasan($id_ik,$id_jabatan,$id_jabatan_atasan)
+{
+  $cek=JabatanIndikatorKinerja::where('id_ik',$id_ik)->where('id_jabatan',$id_jabatan)->first();
+  if (!$cek) {
+    return '';
+  }else{
+    if ($id_jabatan_atasan==$cek->id_parent) {
+      return 'selected';
+    }else{
+      return '';
+    }
+  }
+}
  public static function unit($u)
  {
    return "(".$u->parent_unit_utama->ref_unit->singkatan_unit.") ".$u->ref_unit->nama_ref_unit_kerja_lengkap;

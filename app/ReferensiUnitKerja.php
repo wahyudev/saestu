@@ -6,7 +6,7 @@ class ReferensiUnitKerja extends Model
   protected $primaryKey='id_ref_unit_kerja';
   protected $guarded=[];
   public $timestamps=false;
-  protected $table='referensi_unit_kerja';
+  protected $table='kepeg.referensi_unit_kerja';
 
   
   

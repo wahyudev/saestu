@@ -9,7 +9,7 @@ class Pegawai extends Model
     protected $primaryKey='id_pegawai';
     protected $guarded=[];
     public $timestamps=false;
-    protected $table='pegawai';
+    protected $table='kepeg.pegawai';
 
     // public function biodata()
     // { 

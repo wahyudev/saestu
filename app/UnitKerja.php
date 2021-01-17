@@ -7,7 +7,7 @@ class UnitKerja extends Model
   protected $primaryKey='id_unit_kerja';
   protected $guarded=[];
   public $timestamps=false;
-  protected $table='unit_kerja';
+  protected $table='kepeg.unit_kerja';
 
   public function ref_unit()
   { 
